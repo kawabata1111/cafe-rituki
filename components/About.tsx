@@ -20,13 +20,17 @@ export const About: React.FC = () => {
         </h2>
         <div className="w-12 h-1 bg-accent"></div>
         <p className="text-coffee-med leading-loose font-sans">
-          2025年5月、岡山県岡山市北区下伊福上町にオープン。<br/>
-          「喫茶 涼月」は、日常の喧騒を忘れ、月を見上げる時のように<br/>
+          2025年5月、岡山県岡山市北区下伊福上町にオープン。
+          <br className="hidden md:block"/>
+          「喫茶 涼月」は、日常の喧騒を忘れ、月を見上げる時のように
+          <br className="hidden md:block"/>
           心を落ち着かせられる場所でありたいと願っています。
         </p>
         <p className="text-coffee-med leading-loose font-sans">
-          香り高い珈琲はもちろん、一日の始まりを彩るモーニング、<br/>
-          そして心もお腹も満たすランチをご用意しております。<br/>
+          香り高い珈琲はもちろん、一日の始まりを彩るモーニング、
+          <br className="hidden md:block"/>
+          そして心もお腹も満たすランチをご用意しております。
+          <br className="hidden md:block"/>
           代表 谷住一夫が心を込めて、皆様をお迎えいたします。
         </p>
         
