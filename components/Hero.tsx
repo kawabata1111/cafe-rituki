@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 animate-fade-in-up">
         <p className="text-accent tracking-[0.3em] text-sm md:text-base mb-4 font-sans font-bold uppercase">Est. 2025.05.01</p>
-        <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
+        <h1 className="text-3xl md:text-5xl font-serif font-bold mb-6 leading-tight">
           月明かりのように、<br />
           心静かな時間を。
         </h1>
