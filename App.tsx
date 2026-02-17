@@ -8,7 +8,7 @@ import { Footer } from './components/Footer';
 import { MENU_ITEMS } from './constants';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'coffee' | 'food'>('coffee');
+  const [activeTab, setActiveTab] = useState<'coffee' | 'drinks' | 'food' | 'dessert'>('coffee');
 
   return (
     <div className="min-h-screen flex flex-col bg-paper text-coffee-dark">
@@ -35,32 +35,34 @@ export default function App() {
               <p className="mt-4 text-coffee-light">一杯一杯、心を込めて淹れております。</p>
             </div>
 
-            <div className="flex justify-center gap-8 mb-12">
-              <button
-                onClick={() => setActiveTab('coffee')}
-                className={`pb-2 text-lg transition-all duration-300 ${
-                  activeTab === 'coffee' 
-                    ? 'border-b-2 border-coffee-dark font-bold text-coffee-dark' 
-                    : 'text-coffee-light hover:text-coffee-dark'
-                }`}
-              >
-                珈琲・紅茶
-              </button>
-              <button
-                onClick={() => setActiveTab('food')}
-                className={`pb-2 text-lg transition-all duration-300 ${
-                  activeTab === 'food' 
-                    ? 'border-b-2 border-coffee-dark font-bold text-coffee-dark' 
-                    : 'text-coffee-light hover:text-coffee-dark'
-                }`}
-              >
-                軽食・甘味
-              </button>
+            <div className="flex justify-center gap-4 md:gap-8 mb-12 flex-wrap">
+              {([
+                { key: 'coffee', label: 'コーヒー' },
+                { key: 'drinks', label: 'ドリンク' },
+                { key: 'food', label: 'フード' },
+                { key: 'dessert', label: 'デザート' },
+              ] as const).map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`pb-2 text-lg transition-all duration-300 ${
+                    activeTab === tab.key
+                      ? 'border-b-2 border-coffee-dark font-bold text-coffee-dark'
+                      : 'text-coffee-light hover:text-coffee-dark'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
 
-            <MenuSection 
-              title={activeTab === 'coffee' ? "珈琲 Selection" : "喫茶店の味"} 
-              items={activeTab === 'coffee' ? MENU_ITEMS.drinks : MENU_ITEMS.food} 
+            <MenuSection
+              title={
+                activeTab === 'coffee' ? 'コーヒー' :
+                activeTab === 'drinks' ? 'ドリンク' :
+                activeTab === 'food' ? 'フード' : 'デザート'
+              }
+              items={MENU_ITEMS[activeTab]}
             />
           </div>
         </section>
