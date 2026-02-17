@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { MenuSection } from './components/MenuSection';
 import { Specialty } from './components/Specialty';
 import { Footer } from './components/Footer';
-import { MENU_ITEMS } from './constants';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'coffee' | 'drinks' | 'food' | 'dessert'>('coffee');
-
   return (
     <div className="min-h-screen flex flex-col bg-paper text-coffee-dark">
       <Navbar />
-      
+
       <main className="flex-grow">
         <section id="home">
           <Hero />
@@ -35,35 +32,7 @@ export default function App() {
               <p className="mt-4 text-coffee-light">一杯一杯、心を込めて淹れております。</p>
             </div>
 
-            <div className="flex justify-center gap-4 md:gap-8 mb-12 flex-wrap">
-              {([
-                { key: 'coffee', label: 'コーヒー' },
-                { key: 'drinks', label: 'ドリンク' },
-                { key: 'food', label: 'フード' },
-                { key: 'dessert', label: 'デザート' },
-              ] as const).map((tab) => (
-                <button
-                  key={tab.key}
-                  onClick={() => setActiveTab(tab.key)}
-                  className={`pb-2 text-lg transition-all duration-300 ${
-                    activeTab === tab.key
-                      ? 'border-b-2 border-coffee-dark font-bold text-coffee-dark'
-                      : 'text-coffee-light hover:text-coffee-dark'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-
-            <MenuSection
-              title={
-                activeTab === 'coffee' ? 'コーヒー' :
-                activeTab === 'drinks' ? 'ドリンク' :
-                activeTab === 'food' ? 'フード' : 'デザート'
-              }
-              items={MENU_ITEMS[activeTab]}
-            />
+            <MenuSection />
           </div>
         </section>
 
@@ -88,9 +57,9 @@ export default function App() {
                   </div>
                 </div>
                 <div className="h-64 md:h-full min-h-[300px] bg-coffee-light/20 rounded-lg overflow-hidden relative">
-                   <img 
-                    src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" 
-                    alt="Cafe Atmosphere" 
+                   <img
+                    src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80"
+                    alt="Cafe Atmosphere"
                     className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
                    />
                 </div>

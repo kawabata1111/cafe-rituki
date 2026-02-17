@@ -14,7 +14,7 @@ const SYSTEM_INSTRUCTION = `
 **特徴:** モーニングやランチも提供する、心休まる喫茶店
 
 **メニューリスト:**
-${JSON.stringify([...MENU_ITEMS.coffee, ...MENU_ITEMS.drinks, ...MENU_ITEMS.food, ...MENU_ITEMS.dessert])}
+${JSON.stringify({ コーヒー: MENU_ITEMS.coffee, ドリンク: MENU_ITEMS.drinks, デザート: MENU_ITEMS.dessert, モーニング: MENU_ITEMS.morning, ランチ: MENU_ITEMS.lunch })}
 
 **ルール:**
 1. おすすめする商品は必ず上記のメニューリストから選んでください。

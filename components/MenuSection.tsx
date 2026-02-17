@@ -1,45 +1,103 @@
 import React from 'react';
 import { MenuItem } from '../types';
+import { MENU_ITEMS } from '../constants';
 
-interface MenuSectionProps {
-  title: string;
-  items: MenuItem[];
-}
+const MenuList: React.FC<{ title: string; items: MenuItem[] }> = ({ title, items }) => (
+  <div className="mb-8">
+    <h3 className="text-xl md:text-2xl font-serif font-bold text-coffee-dark mb-4">{title}</h3>
+    <ul className="space-y-2">
+      {items.map((item) => (
+        <li key={item.name} className="flex items-baseline gap-2">
+          <span className="text-coffee-dark font-sans text-sm md:text-base">{item.name}</span>
+          <span className="flex-1 border-b border-dotted border-coffee-light/40 min-w-[20px] mx-1 translate-y-[-3px]"></span>
+          <span className="text-coffee-dark font-sans text-sm md:text-base whitespace-nowrap">{item.price.toLocaleString()}円</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
-export const MenuSection: React.FC<MenuSectionProps> = ({ title, items }) => {
+const MenuNote: React.FC<{ text: string }> = ({ text }) => (
+  <p className="text-coffee-light text-xs md:text-sm mt-1 whitespace-pre-line leading-relaxed pl-2">
+    {text}
+  </p>
+);
+
+export const MenuSection: React.FC = () => {
   return (
-    <div className="animate-fade-in">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {items.map((item) => (
-          <div key={item.id} className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-            <div className="relative h-64 overflow-hidden">
-              <img 
-                src={item.image} 
-                alt={item.name} 
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-coffee-dark/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="flex gap-2">
-                  {item.tags?.map(tag => (
-                    <span key={tag} className="text-xs bg-accent/90 text-coffee-dark px-2 py-1 rounded-full font-bold">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
+    <div className="max-w-4xl mx-auto">
+      {/* Menu Card */}
+      <div className="bg-cream border-[6px] border-coffee-med/70 rounded-sm shadow-xl p-6 md:p-12 relative">
+        {/* Inner border */}
+        <div className="absolute inset-3 md:inset-5 border border-coffee-light/30 rounded-sm pointer-events-none"></div>
+
+        <div className="relative">
+          {/* Title */}
+          <div className="text-center mb-8 md:mb-10">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-coffee-dark tracking-[0.3em]">メニュー</h2>
+            <div className="w-32 h-[2px] bg-coffee-dark mx-auto mt-3"></div>
+          </div>
+
+          {/* Coffee & Drinks Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 mb-6">
+            {/* Left: Coffee */}
+            <div>
+              <MenuList title="コーヒー" items={MENU_ITEMS.coffee} />
             </div>
-            <div className="p-6 relative">
-              <div className="flex justify-between items-baseline mb-2">
-                <h3 className="text-xl font-bold font-serif text-coffee-dark">{item.name}</h3>
-                <span className="font-serif text-lg text-accent font-bold">¥{item.price}</span>
-              </div>
-              <p className="text-coffee-light text-sm leading-relaxed mb-4 min-h-[40px]">
-                {item.description}
-              </p>
-              <div className="w-full h-[1px] bg-coffee-light/10 group-hover:bg-accent/50 transition-colors"></div>
+
+            {/* Right: Drinks + Dessert */}
+            <div>
+              <MenuList title="ドリンク" items={MENU_ITEMS.drinks} />
+              <MenuList title="デザート" items={MENU_ITEMS.dessert} />
             </div>
           </div>
-        ))}
+
+          {/* Divider */}
+          <div className="w-full h-[1px] bg-coffee-light/30 my-8"></div>
+
+          {/* Food Section */}
+          <div>
+            <h3 className="text-xl md:text-2xl font-serif font-bold text-coffee-dark mb-6">フード</h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+              {/* Morning */}
+              <div>
+                <p className="text-coffee-med font-sans text-sm mb-3">〈 8:00 ～ 11:00 〉</p>
+                <div className="mb-2">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-lg md:text-xl font-serif font-bold text-coffee-dark">モーニング</span>
+                    <span className="flex-1"></span>
+                    <span className="text-lg md:text-xl font-serif font-bold text-coffee-dark">600円</span>
+                  </div>
+                  <p className="text-coffee-light text-xs md:text-sm mt-1 leading-relaxed pl-1">
+                    （パンorおにぎり）<br />
+                    コーヒー・ドリンク付
+                  </p>
+                </div>
+              </div>
+
+              {/* Lunch */}
+              <div>
+                <p className="text-coffee-med font-sans text-sm mb-3">〈 11:00 ～ 〉</p>
+                <ul className="space-y-2">
+                  {MENU_ITEMS.lunch.map((item) => (
+                    <li key={item.name}>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-coffee-dark font-sans text-sm md:text-base">{item.name}</span>
+                        <span className="flex-1 border-b border-dotted border-coffee-light/40 min-w-[20px] mx-1 translate-y-[-3px]"></span>
+                        <span className="text-coffee-dark font-sans text-sm md:text-base whitespace-nowrap">{item.price.toLocaleString()}円</span>
+                      </div>
+                      {item.note && (
+                        <MenuNote text={item.note} />
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-coffee-light text-xs md:text-sm mt-4">※ コーヒー・ドリンク付き</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
