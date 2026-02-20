@@ -27,9 +27,9 @@ export const About: React.FC = () => {
           心を落ち着かせられる場所でありたいと願っています。
         </p>
         <p className="text-coffee-med leading-loose font-sans">
-          香り高い珈琲はもちろん、一日の始まりを彩るモーニング、
+          香り高い珈琲はもちろん、一日の始まりを彩るモーニングを
           <br className="hidden md:block"/>
-          そして心もお腹も満たすランチをご用意しております。
+          ご用意しております。
           <br className="hidden md:block"/>
           代表 谷住一夫が心を込めて、皆様をお迎えいたします。
         </p>

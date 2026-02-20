@@ -21,7 +21,7 @@ export const Specialty: React.FC = () => {
       id: 3,
       icon: <Utensils size={32} strokeWidth={1.5} />,
       title: "地元の恵み",
-      description: "岡山の新鮮な卵や野菜を使用したモーニングとランチ。シンプルだからこそ、素材の味が引き立つ、毎日食べても飽きない料理をご提供します。",
+      description: "岡山の新鮮な卵や野菜を使用したモーニング。シンプルだからこそ、素材の味が引き立つ、毎日食べても飽きない料理をご提供します。",
       image: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=800&q=80"
     }
   ];

@@ -48,7 +48,7 @@ export default function App() {
                     </div>
                     <div>
                       <h3 className="text-accent text-sm font-bold uppercase mb-1">Hours</h3>
-                      <p>モーニング - ランチタイム営業<br/>※ 詳しい営業時間はSNS等でご確認ください</p>
+                      <p>モーニング営業<br/>※ 詳しい営業時間はSNS等でご確認ください</p>
                     </div>
                     <div>
                       <h3 className="text-accent text-sm font-bold uppercase mb-1">Contact</h3>

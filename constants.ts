@@ -5,7 +5,7 @@ export const MENU_ITEMS: {
   drinks: MenuItem[];
   dessert: MenuItem[];
   morning: MenuItem[];
-  lunch: MenuItem[];
+  // lunch: MenuItem[];
 } = {
   coffee: [
     { name: 'アメリカン', price: 600 },
@@ -37,10 +37,10 @@ export const MENU_ITEMS: {
   morning: [
     { name: 'モーニング', price: 600, note: '（パンorおにぎり）\nコーヒー・ドリンク付' },
   ],
-  lunch: [
-    { name: 'カレーライス', price: 800 },
-    { name: 'チャーハン', price: 800 },
-    { name: 'スパゲッティ', price: 800 },
-    { name: 'ホットケーキ', price: 700, note: '（メープル・チョコ・イチゴ）\nバニラアイス　+100円' },
-  ],
+  // lunch: [
+  //   { name: 'カレーライス', price: 800 },
+  //   { name: 'チャーハン', price: 800 },
+  //   { name: 'スパゲッティ', price: 800 },
+  //   { name: 'ホットケーキ', price: 700, note: '（メープル・チョコ・イチゴ）\nバニラアイス追加可' },
+  // ],
 };

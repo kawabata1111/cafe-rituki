@@ -9,8 +9,6 @@ const MenuList: React.FC<{ title: string; items: MenuItem[] }> = ({ title, items
       {items.map((item) => (
         <li key={item.name} className="flex items-baseline gap-2">
           <span className="text-coffee-dark font-sans text-sm md:text-base">{item.name}</span>
-          <span className="flex-1 border-b border-dotted border-coffee-light/40 min-w-[20px] mx-1 translate-y-[-3px]"></span>
-          <span className="text-coffee-dark font-sans text-sm md:text-base whitespace-nowrap">{item.price.toLocaleString()}円</span>
         </li>
       ))}
     </ul>
@@ -59,41 +57,19 @@ export const MenuSection: React.FC = () => {
           <div>
             <h3 className="text-xl md:text-2xl font-serif font-bold text-coffee-dark mb-6">フード</h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+            <div>
               {/* Morning */}
               <div>
                 <p className="text-coffee-med font-sans text-sm mb-3">〈 8:00 ～ 11:00 〉</p>
                 <div className="mb-2">
                   <div className="flex items-baseline gap-2">
                     <span className="text-lg md:text-xl font-serif font-bold text-coffee-dark">モーニング</span>
-                    <span className="flex-1"></span>
-                    <span className="text-lg md:text-xl font-serif font-bold text-coffee-dark">600円</span>
                   </div>
                   <p className="text-coffee-light text-xs md:text-sm mt-1 leading-relaxed pl-1">
                     （パンorおにぎり）<br />
                     コーヒー・ドリンク付
                   </p>
                 </div>
-              </div>
-
-              {/* Lunch */}
-              <div>
-                <p className="text-coffee-med font-sans text-sm mb-3">〈 11:00 ～ 〉</p>
-                <ul className="space-y-2">
-                  {MENU_ITEMS.lunch.map((item) => (
-                    <li key={item.name}>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-coffee-dark font-sans text-sm md:text-base">{item.name}</span>
-                        <span className="flex-1 border-b border-dotted border-coffee-light/40 min-w-[20px] mx-1 translate-y-[-3px]"></span>
-                        <span className="text-coffee-dark font-sans text-sm md:text-base whitespace-nowrap">{item.price.toLocaleString()}円</span>
-                      </div>
-                      {item.note && (
-                        <MenuNote text={item.note} />
-                      )}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-coffee-light text-xs md:text-sm mt-4">※ コーヒー・ドリンク付き</p>
               </div>
             </div>
           </div>

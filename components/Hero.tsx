@@ -23,7 +23,7 @@ export const Hero: React.FC = () => {
         </h1>
         <p className="font-sans text-stone-200 max-w-lg mx-auto leading-relaxed mb-10 text-sm md:text-base">
           岡山の地で紡ぐ、安らぎのひととき。<br />
-          モーニングからランチまで、<br className="md:hidden" />こだわりの珈琲と共にお待ちしております。
+          こだわりの珈琲とモーニングで、<br className="md:hidden" />皆様をお待ちしております。
         </p>
         
         <button 
