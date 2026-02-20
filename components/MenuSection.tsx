@@ -3,9 +3,9 @@ import { MenuItem } from '../types';
 import { MENU_ITEMS } from '../constants';
 
 const MenuList: React.FC<{ title: string; items: MenuItem[] }> = ({ title, items }) => (
-  <div className="mb-8">
+  <div className="mb-8 text-center">
     <h3 className="text-xl md:text-2xl font-serif font-bold text-coffee-dark mb-4">{title}</h3>
-    <ul className="space-y-2">
+    <ul className="space-y-2 inline-block">
       {items.map((item) => (
         <li key={item.name} className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
@@ -56,15 +56,15 @@ export const MenuSection: React.FC = () => {
 
           {/* Food Section */}
           <div>
-            <h3 className="text-xl md:text-2xl font-serif font-bold text-coffee-dark mb-6">フード</h3>
+            <h3 className="text-xl md:text-2xl font-serif font-bold text-coffee-dark mb-6 text-center">フード</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
               {/* Morning */}
-              <div>
+              <div className="text-center">
                 <p className="text-coffee-med font-sans text-sm mb-3">〈 8:00 ～ 11:00 〉</p>
                 <div className="mb-2">
                   <span className="text-lg md:text-xl font-serif font-bold text-coffee-dark">モーニング</span>
-                  <p className="text-coffee-light text-xs md:text-sm mt-2 leading-relaxed pl-1">
+                  <p className="text-coffee-light text-xs md:text-sm mt-2 leading-relaxed">
                     （パンorおにぎり）<br />
                     コーヒー・ドリンク付
                   </p>
@@ -72,9 +72,9 @@ export const MenuSection: React.FC = () => {
               </div>
 
               {/* Lunch */}
-              <div>
+              <div className="text-center">
                 <p className="text-coffee-med font-sans text-sm mb-3">〈 11:00 ～ 〉</p>
-                <ul className="space-y-2">
+                <ul className="space-y-2 inline-block">
                   {MENU_ITEMS.lunch.map((item) => (
                     <li key={item.name}>
                       <div className="flex items-center gap-2">
