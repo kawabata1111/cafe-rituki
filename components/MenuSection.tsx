@@ -5,7 +5,7 @@ import { MENU_ITEMS } from '../constants';
 const MenuList: React.FC<{ title: string; items: MenuItem[] }> = ({ title, items }) => (
   <div className="mb-8">
     <h3 className="text-xl md:text-2xl font-serif font-bold text-coffee-dark mb-4">{title}</h3>
-    <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
+    <ul className="space-y-2">
       {items.map((item) => (
         <li key={item.name} className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
